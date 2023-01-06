@@ -1,6 +1,6 @@
 # SoftEduPy
-##  Softwares Educativos
-Automação para instalação de  vários Softwares Educativos em Flatpaks, repositórios oficiais.
+## Softwares Educativos
+Automação para instalação de vários Softwares Educativos em Flatpaks e repositórios oficiais.
 
 ### Compatibilidade:
 * Qualquer distro baseada em Debian.
@@ -17,8 +17,8 @@ python3 main.py
 * Faz uma instalação básica ou completa dos softwares educacionais em flatpaks;
 * Faz uma instalação completa pelo repositório oficial.
 ### O que falta fazer :
-* Inslação Básica pelos repositórios oficais;
-* Instação Personalizada;
+* Instalação Básica pelos repositórios oficais;
+* Instatação Personalizada;
 * Desistalação dos Flatpaks e .DEBs.
 
 
