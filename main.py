@@ -64,7 +64,7 @@ def main():
 
 def verifica_flatpak():
     os.system('clear')
-    flatpakinslado = os.system('verificaFlatpak=$(dpkg -l | grep -i flatpnak)')
+    flatpakinslado = os.system('verificaFlatpak=$(dpkg -l | grep -i flatpak)')
     if flatpakinslado == 0:
         print("Flatpak está instalado")
         menu()
