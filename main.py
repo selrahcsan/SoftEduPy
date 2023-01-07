@@ -59,9 +59,19 @@ def main():
     """
 
     """
+    verifica_flatpak()
+
+
+def verifica_flatpak():
     os.system('clear')
-    menu()
-    funcionalidades()
+    flatpakinslado = os.system('verificaFlatpak=$(dpkg -l | grep -i flatpnak)')
+    if flatpakinslado == 0:
+        print("Flatpak está instalado")
+        menu()
+        funcionalidades()
+    else:
+        print("Flatapk não está instalado")
+        menu_debs()
 
 
 def menu():
@@ -92,6 +102,11 @@ Instalação FlatPaks:
      [C] - Instalar versão Completa
             ''')
     funcionalidades_submenu_flatpaks()
+
+
+def menu_debs():
+    print("Instalando pacotes do reposiório da sua distro")
+    instalar_debs()
 
 
 def funcionalidades_submenu_flatpaks():
