@@ -16,10 +16,12 @@ python3 main.py
 ### O que esses srcipt faz :
 * Faz uma instalação básica ou completa dos softwares educacionais em flatpaks;
 * Faz uma instalação completa pelo repositório oficial.
+* Verifica se o Flatpak está instalado
 ### O que falta fazer :
 * Instalação Básica pelos repositórios oficais;
-* Instatação Personalizada;
+* Instalação Personalizada;
 * Desistalação dos Flatpaks e .DEBs.
+* verificar se o flatpak está configurado com o flathub
 
 
 
