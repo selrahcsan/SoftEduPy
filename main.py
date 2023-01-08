@@ -1,4 +1,6 @@
 import os
+import emoji
+
 
 jogosEducacionais = ['org.kde.gcompris ', 'org.kde.ktuberling', 'org.kde.kbruch', 'net.minetest.Minetest',
                      'net.supertuxkart.SuperTuxKart', 'org.supertuxproject.SuperTux', 'forg.kde.blinken',
@@ -59,48 +61,78 @@ def main():
     """
 
     """
+
+    print("Complete.")
+    os.system('clear')
     verifica_flatpak()
 
 
+def verifica_emoji():
+    emojiinstalado = os.system('verificaEmoji=$(pip show emoji)')
+
+    if emojiinstalado == 0:
+        print(emoji.emojize("Emoji   ...:thumbs_up:"))
+
+
 def verifica_flatpak():
-    os.system('clear')
+    verifica_emoji()
     flatpakinslado = os.system('verificaFlatpak=$(dpkg -l | grep -i flatpak)')
+
     if flatpakinslado == 0:
-        print("Flatpak está instalado")
+        print(emoji.emojize("Flatpak ...:thumbs_up:"))
+        verifica_flathub()
         menu()
         funcionalidades()
     else:
-        print("Flatapk não está instalado")
+        print(emoji.emojize("Flatapk não está instalado ...:disappointed_face:"))
         menu_debs()
 
 
-def menu():
-    print('''
-MENU Principal:
+def verifica_flathub():
+    flathubinstalado = os.system('verificaFlathub=$(flatpak remotes)')
+    if flathubinstalado == 0:
+        print(emoji.emojize("Flathub ...:thumbs_up:"))
+    else:
+        print("Deseja adicionar o remoto Flathub ? (S/N): ")
+        opcao_flathub = str(input('Escolha uma opção: '))
+        if opcao_flathub.lower() == "s":
+            instala_flathub()
+        else:
+            menu_debs()
 
-    [F] - Instalar versão Educacional em Flatpaks
-    [R] - Instalar versão Educacional dos Repositórios (DEBs)
-    [S] - Sair
-        ''')
+
+def instala_flathub():
+    os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
+
+
+def menu():
+    print(emoji.emojize('''
+    :pencil:  MENU Principal:
+
+    :eight-pointed_star: [F] - Instalar versão Educacional em Flatpaks 
+    :eight-pointed_star: [R] - Instalar versão Educacional dos Repositórios (DEBs)
+    :eight-pointed_star: [S] - Sair
+        '''))
 
 
 def funcionalidades():
-    opcaomenu = str(input('Escolha uma opção: '))
-    if (opcaomenu == "F") or (opcaomenu == "f"):
+    opcaomenu = str(input(emoji.emojize('Escolha uma opção :thinking_face::  ')))
+    if opcaomenu.lower() == "f":
         submenu_flatpaks()
-    if (opcaomenu == "R") or (opcaomenu == "r"):
+    elif opcaomenu.lower() == "r":
         instalar_debs()
     else:
         print("finalizado")
 
 
 def submenu_flatpaks():
-    print('''
-Instalação FlatPaks:
+    os.system('clear')
+    print(emoji.emojize('''
+    :pencil:  Instalação FlatPaks:
 
-     [B] - Instalar versão Básica
-     [C] - Instalar versão Completa
-            ''')
+     :right_arrow: [B] - Instalar versão Básica
+     :sparkle: [C] - Instalar versão Completa
+            '''))
     funcionalidades_submenu_flatpaks()
 
 
@@ -206,7 +238,7 @@ def instalar_flatpaks():
 
 def atualizar_flatpaks():
     try:
-        os.system("flatpak update -y")
+        os.system("flatpak update -y --noninteractive ")
     except Exception:
         print("Não foi possível atualizar os flatpaks")
 
