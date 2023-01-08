@@ -5,6 +5,7 @@ Automação para instalação de vários Softwares Educativos em Flatpaks e repo
 ### Dependências:
 ```bash
 sudo apt install python3-pip
+sudo apt install fonts-noto-color-emoji
 pip install emoji
 ```
 ### Compatibilidade:
