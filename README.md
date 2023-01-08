@@ -2,6 +2,11 @@
 ## Softwares Educativos
 Automação para instalação de vários Softwares Educativos em Flatpaks e repositórios oficiais.
 
+### Dependências:
+```bash
+sudo apt install python3-pip
+pip install emoji
+```
 ### Compatibilidade:
 * Qualquer distro baseada em Debian.
 ### Clonar respositório :
@@ -17,6 +22,8 @@ python3 main.py
 * Faz uma instalação básica ou completa dos softwares educacionais em flatpaks;
 * Faz uma instalação completa pelo repositório oficial.
 * Verifica se o Flatpak está instalado
+* Verifica se o remoto Flathub está instalado
+* Instala Flathub se for necessário
 ### O que falta fazer :
 * Instalação Básica pelos repositórios oficais;
 * Instalação Personalizada;
